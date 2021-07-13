@@ -1,0 +1,16 @@
+{
+  "name": "example-import-scss-how",
+  "version": "1.0.0",
+  "description": "an example of how import scss file inside a scss file (just tried)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"test: OK\" && exit 0"
+  },
+  "keywords": ["sass", "scss", "import-scss", "node-sass", "import", "sass-module"],
+  "author": {
+    "name": "miko-github",
+    "email": "mikoloism.github@gmail.com",
+    "url": "https://github.com/miko-github"
+  },
+  "license": "MIT"
+}
