@@ -2,7 +2,7 @@
 /// @param {String|Map|List} $map
 /// @param {String|Number} $path|$keys|$index
 /// @param {String} $sep [':'|'.'|'-'|' ']
-@function get($map, $keys) {
+@function deprecated__get($map, $keys) {
   $separator: ':';
   $key-list: split($keys, $separator);
   @return MAP.get($map, $key-list...);

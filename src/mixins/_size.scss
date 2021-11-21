@@ -1,13 +1,19 @@
 // FIXME : @use './../../utils/map';
 
 //=> [w min max]|w, min, max, (together: min+max+w)
-@mixin width($w: null, $min: null, $max: null, $tog: null) {
+@mixin deprecated__width($w: null, $min: null, $max: null, $tog: null) {
 }
 
 //=> [w min max]|w, min, max, (together: min+max+h)
-@mixin height($h: null, $min: null, $max: null, $tog: null) {
+@mixin deprecated__height($h: null, $min: null, $max: null, $tog: null) {
 }
 
 //=> [w min max]|w, [h min max]|h, ([w+h min max])|(together: w+h), min, max
-@mixin size($w: null, $h: null, $tog: null, $min: null, $max: null) {
+@mixin deprecated__size(
+  $w: null,
+  $h: null,
+  $tog: null,
+  $min: null,
+  $max: null
+) {
 }

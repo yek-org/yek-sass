@@ -1,11 +1,10 @@
 {
   "name": "@yek/sass",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "the Sass/SCSS library with useful mixins, functions and more features",
   "main": "dist/index.scss",
   "scripts": {
-    "watch": "sass --watch",
-    "compile": "",
+    "build": "npx gulp default",
     "test": "echo \"test: OK\" && exit 0"
   },
   "keywords": [
@@ -30,6 +29,7 @@
   "license": "MIT",
   "devDependencies": {
     "gulp": "^4.0.2",
-    "gulp-concat": "^2.6.1"
+    "gulp-concat": "^2.6.1",
+    "gulp-sourcemaps": "^3.0.0"
   }
 }
