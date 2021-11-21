@@ -1,0 +1,77 @@
+/// dependencies
+@use 'sass:list' as LIST;
+@use 'sass:string' as STR;
+
+/// split without delimiter
+/// @access private
+/// @func-size (664 bytes)
+/// @speed-test (70.xxx sec)
+@function _split-by-null($string) {
+  // empty list
+  $fragment: ();
+  // constant index
+  $index: 1;
+  // walk string when length of string is greater than 1
+  @while $index <= len($string) - 1 {
+    // get first character of string
+    $item: STR.slice($string, 0, $index);
+    // push item to fragment
+    $fragment: LIST.append($fragment, $item);
+    // remove first character of string
+    $string: STR.slice($string, $index + 1);
+  }
+  // push last character of string to fragment
+  $fragment: LIST.append($fragment, $string);
+  @return $fragment;
+}
+
+/// split with delimiter
+/// @access private
+/// @func-size (695 bytes)
+/// @speed-test (68.xxx sec)
+@function _split-by-sep($string, $sep: ':') {
+  // empty list
+  $fragment: ();
+  // find first index of delimiter
+  $index: STR.index($string, $sep);
+  // walk through string
+  @while $index != null {
+    // get string of value
+    $item: STR.slice($string, 1, $index - 1);
+    // push item to fragment
+    $fragment: LIST.append($fragment, $item);
+    // remove walked string
+    $string: STR.slice($string, $index + len($sep));
+    // find new index of delimiter
+    $index: STR.index($string, $sep);
+  }
+  // push last character of string to fragment
+  $fragment: LIST.append($fragment, $string);
+  // return splited string
+  @return $fragment;
+}
+
+/// split - split a string into list by separator
+/// @access public
+/// @func-size (829 bytes)
+/// @speed-test (65.xxx ~ 70.xxx sec)
+/// @group helpers
+/// @param {String} $string
+/// @param {String} $sep [':'|'.'|'-'|' ']
+/// @return {List} $splited-string
+@function split($string, $sep: null) {
+  // type-check of `$string`
+  @if type-of($string) != 'string' {
+    @error 'The argument $string: `#{$string}` is of incorrect type: `#{type-of($string)}`. Type of `String` is required!';
+  } @else if $sep != null and type-of($sep) != 'string' {
+    @error 'The argument $string: `#{$sep}` is of incorrect type: `#{type-of($sep)}`. Type of `String` is required!';
+  }
+
+  // if seprator not passed or is empty string
+  @if $sep == null or len($sep) == 0 or $sep == '' {
+    @return _split-by-null($string);
+  } @else {
+    // else seprator passed
+    @return _split-by-sep($string, $sep);
+  }
+}

@@ -14,6 +14,10 @@
     transform: scale(0.8);
   }
 }
+@mixin --fcenter {
+  @include flex;
+  @include aligns;
+}
 @mixin --radius($offset: 9) {
   border-radius: unquote('#{$offset}px');
 }
@@ -53,43 +57,6 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-
-@mixin align($ver: null, $hor: null, $content: null) {
-  @if $hor == null and $ver == null {
-    align-items: center;
-    justify-content: center;
-  }
-  @if $hor not null {
-    align-items: $hor; // hor
-  }
-  @if $ver not null {
-    justify-content: $ver; // ver
-  }
-  @if $content not null {
-    align-content: $content;
-  }
-}
-@mixin aligns($align: center) {
-  @include align($align, $align, $align);
-}
-@mixin flex($dir: row, $wrap: wrap) {
-  display: flex;
-  flex-direction: $dir;
-  flex-wrap: $wrap;
-}
-
-@mixin size($w: null, $h: null) {
-  @if $w == null and $h == null {
-    width: 100%;
-    height: 100%;
-  }
-  @if $w not null {
-    width: $w;
-  }
-  @if $h not null {
-    height: $h;
-  }
-}
 @mixin width($w: null, $max: null, $min: null) {
   @if $w == null and $max == null and $min == null {
     width: 100%;
@@ -122,6 +89,41 @@
     min-height: $min;
   }
 }
+@mixin align($ver: null, $hor: null, $content: null) {
+  @if $hor == null and $ver == null {
+    align-items: center;
+    justify-content: center;
+  }
+  @if $hor not null {
+    align-items: $hor; // hor
+  }
+  @if $ver not null {
+    justify-content: $ver; // ver
+  }
+  @if $content not null {
+    align-content: $content;
+  }
+}
+@mixin aligns($align: center) {
+  @include align($align, $align, $align);
+}
+@mixin flex($dir: row, $wrap: wrap) {
+  display: flex;
+  flex-direction: $dir;
+  flex-wrap: $wrap;
+}
+@mixin size($w: null, $h: null) {
+  @if $w == null and $h == null {
+    width: 100%;
+    height: 100%;
+  }
+  @if $w not null {
+    width: $w;
+  }
+  @if $h not null {
+    height: $h;
+  }
+}
 
 @mixin case($case: null) {
   $_case: none;
@@ -141,7 +143,7 @@
   text-transform: $_case;
 }
 
-// under developing
+// [START Under Workspace]
 @mixin transform($transform: null) {
   @if $transform not null {
     transform: $transform;
@@ -182,8 +184,8 @@
     @include transform(rotateX($x));
   }
 }
+// [END Under Workspace]
 
-// under developing
 @mixin position(
   $type: null,
   $top: null,

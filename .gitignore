@@ -1,2 +1,5 @@
 .vscode/
 .prettierrc
+node_modules/
+_TEMP_/
+_branches_/
