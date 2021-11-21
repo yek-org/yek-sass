@@ -1,3 +1,10 @@
+@use 'sass:string' as STR;
+
+// sass default funciton have warning
+@function unit($value) {
+  @return STR.slice($value * 0 + '', 2, -1);
+}
+
 ///
 // A collection of function for advanced type checking
 // @author Kitty Giraudel
