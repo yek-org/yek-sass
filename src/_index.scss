@@ -1,10 +1,4 @@
-/* [ VERSION : 2.0.3 ] */
-
-/// DEPENDENCIES //
-@use 'sass:list' as LIST;
-@use 'sass:string' as STR;
-@use 'sass:meta' as META;
-@use 'sass:map' as MAP;
+@import './dependencies';
 
 // UTILS //
 @import './utils/units';
