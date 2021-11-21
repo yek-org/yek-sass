@@ -1,23 +1,10 @@
-/* [ VERSION : 2.0.3 ] */
+/* [ VERSION : 2.0.4 ] */
 
 /// DEPENDENCIES //
 @use 'sass:list' as LIST;
 @use 'sass:string' as STR;
 @use 'sass:meta' as META;
 @use 'sass:map' as MAP;
-
-// UTILS //
-@import './utils/units';
-@import './utils/map/map';
-@import './utils/string/length';
-@import './utils/string/split';
-
-// MIXIN //
-@import './mixins/size';
-@import './mixins/mixins';
-@import './mixins/breakpoints';
-@import './mixins/flex';
-@import './mixins/body';
 
 // google fonts
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
