@@ -1,0 +1,205 @@
+// [METHOD - 1] (VIGET)
+@function yek-map-get($map, $keys...) {
+  // ? and we can use each style with each func
+  /// ? like : size('big') | size('medium') | size('buttton-large') | size('button', 'large')
+  $value: $map;
+  @each $key in $keys {
+    // if key is a number, assume we want to do some math with it
+    @if (type-of($key) == number) {
+      // a unitless number (0.6, -1, 5) should multiply the current value
+      @if (unitless($key) == true) {
+        $value: $value * $key;
+        // otherwise, assume the number should be added
+      } @else {
+        $value: $value + $key;
+      }
+      // otherwise, assume it's a string, and keep recursing as usual
+    } @else {
+      $value: map-get($value, $key);
+    }
+  }
+
+  @return $value;
+}
+
+// [METHOD - 2] (ITNEXT)
+@function yek-get-map($key, $map: null) {
+  $separator: ':'; // '.' | ':' | '_' | '-' | ' '
+  $keys: str-explode($key, $separator);
+
+  @if not deep-map-check($map, $keys...) {
+    @error 'The argument $map: `#{$map}` doesn\'t has some of the $keys: `#{$keys}`!';
+  }
+
+  @return deep-map-get($map, $keys...);
+}
+@function str-explode($string, $delimiter: '') {
+  @if type-of($string) != 'string' {
+    @error 'The argument $string: `#{$string}` is of incorrect type: `#{type-of($string)}`. Type of `String` is required!';
+  } @else if type-of($delimiter) != 'string' {
+    @error 'The argument $string: `#{$string}` is of incorrect type: `#{type-of($string)}`. Type of `String` is required!';
+  }
+  $result: ();
+  $running: true;
+  @if str-length($delimiter) == 0 {
+    @for $i from 1 through str-length($string) {
+      $result: append($result, str-slice($string, $i, $i));
+    }
+    @return $result;
+  }
+  @while $running {
+    $index: str-index($string, $delimiter);
+    @if $index != null {
+      $item: str-slice($string, 1, ($index - 1));
+      $result: append($result, $item);
+      $string: str-slice($string, ($index + str-length($delimiter)));
+    } @else {
+      $running: false;
+    }
+  }
+  @return append($result, $string);
+}
+@function deep-map-check($map, $keys...) {
+  @if type-of($map) != 'map' {
+    @error 'The argument $map: `#{$map}` is of incorrect type: `#{type-of($map)}`. Type of `Map` is required!';
+  }
+  @each $key in $keys {
+    @if not map-has-key($map, $key) {
+      @return false;
+    }
+    $map: map-get($map, $key);
+  }
+  @return true;
+}
+@function deep-map-get($map, $keys...) {
+  @if type-of($map) != 'map' {
+    @error 'The argument $map: `#{$map}` is of incorrect type: `#{type-of($map)}`. Type of `Map` is required!';
+  }
+  @each $key in $keys {
+    $map: map-get($map, $key);
+  }
+  @return $map;
+}
+
+// [METHOD - 3] (SITEPOINT)
+@function map-deep-set($map, $keys... /*, $value */) {
+  $map-list: ($map);
+  $result: null;
+
+  @if length($keys) == 2 {
+    @return map-merge(
+      $map,
+      (
+        nth($keys, 1): nth($keys, -1),
+      )
+    );
+  }
+
+  @for $i from 1 through length($keys) - 2 {
+    $map-list: append($map-list, map-get(nth($map-list, -1), nth($keys, $i)));
+  }
+
+  @for $i from length($map-list) through 1 {
+    $result: map-merge(
+      nth($map-list, $i),
+      (
+        nth($keys, $i): if($i == length($map-list), nth($keys, -1), $result),
+      )
+    );
+  }
+
+  @return $result;
+}
+@function map-depth($map) {
+  // show, maximum level of nesting
+  $level: 1;
+
+  @each $key, $value in $map {
+    @if type-of($value) == 'map' {
+      $level: max(map-depth($value) + 1, $level);
+    }
+  }
+
+  @return $level;
+}
+@function map-has-keys($map, $keys...) {
+  @each $key in $keys {
+    @if not map-has-key($map, $key) {
+      @return false;
+    }
+  }
+
+  @return true;
+}
+@function map-has-nested-keys($map, $keys...) {
+  @each $key in $keys {
+    @if not map-has-key($map, $key) {
+      @return false;
+    }
+    $map: map-get($map, $key);
+  }
+
+  @return true;
+}
+@function map-zip($keys, $values) {
+  // connect list of keys and values as map
+  $l-keys: length($keys);
+  $l-values: length($values);
+  $min: min($l-keys, $l-values);
+  $map: ();
+
+  @if $l-keys != $l-values {
+    @warn "There are #{$l-keys} key(s) for #{$l-values} value(s) in the map for `map-zip`. "
+        + "Resulting map will only have #{$min} pairs.";
+  }
+
+  @if $min == 0 {
+    @return $map;
+  }
+
+  @for $i from 1 through $min {
+    $map: map-merge(
+      $map,
+      (
+        nth($keys, $i): nth($values, $i),
+      )
+    );
+  }
+
+  @return $map;
+}
+@function map-extend($map, $maps... /*, $deep */) {
+  $last: nth($maps, -1);
+  $deep: $last == true;
+  $max: if($deep, length($maps) - 1, length($maps));
+
+  // Loop through all maps in $maps...
+  @for $i from 1 through $max {
+    // Store current map
+    $current: nth($maps, $i);
+
+    // If not in deep mode, simply merge current map with map
+    @if not $deep {
+      $map: map-merge($map, $current);
+    } @else {
+      // If in deep mode, loop through all tuples in current map
+      @each $key, $value in $current {
+        // If value is a nested map and same key from map is a nested map as well
+        @if type-of($value) == 'map' and type-of(map-get($map, $key)) == 'map' {
+          // Recursive extend
+          $value: map-extend(map-get($map, $key), $value, true);
+        }
+
+        // Merge current tuple with map
+        $map: map-merge(
+          $map,
+          (
+            $key: $value,
+          )
+        );
+      }
+    }
+  }
+
+  @return $map;
+}

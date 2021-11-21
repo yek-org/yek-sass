@@ -1,0 +1,15 @@
+@mixin y__flex($type: false) {
+	@if (($inline == inline-flex) or ($inline == inline)) {
+		display: inline-flex;
+	} @else if ($type == box or $type == flexbox) {
+		display: flexbox;
+	} @else {
+		display: flex;
+	}
+}
+@mixin y__flex--wrap($wrap: wrap) {
+	flex-wrap: $wrap;
+}
+@mixin y__flex--direction($dir: column) {
+	flex-direction: $dir;
+}

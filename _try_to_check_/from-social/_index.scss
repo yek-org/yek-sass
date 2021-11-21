@@ -1,0 +1,84 @@
+/* YEK (https://github.com/yek-org)
+-------------------------------------- */
+$yek-light: #fff;
+$yek-gray--100: #f9f9f9;
+$yek-gray--400: #f4f4f4;
+$yek-gray--800: #444;
+$yek-blue--600: #69c;
+@function _yek-btn--size($s: 'md') {
+  $_s: map-get(
+    (
+      small: 42px,
+      sm: 42px,
+      medium: 60px,
+      md: 60px,
+      larg: 72px,
+      lg: 72px,
+    ),
+    $s
+  );
+  @return $_s;
+}
+@mixin yek-flex($d: row, $w: wrap) {
+  display: flex;
+  flex-direction: $d;
+  flex-wrap: $w;
+}
+@mixin yek-size($w: 100%, $h: 100%) {
+  width: $w;
+  height: $h;
+}
+@mixin yek-transition($dr: 0.5s, $dl: 0.3s, $tf: auto, $el: all) {
+  transition: $dr $dl $el $tf;
+}
+@mixin yek-center($d: row, $w: wrap) {
+  @include yek-flex($d, $w);
+  justify-content: center;
+  align-content: center;
+}
+@mixin yek-button($s: 'md', $w: 144px) {
+  $_size: _yek-btn--size($s);
+  @include yek-size($w, $_size);
+}
+@mixin yek-fab($s: 'lg', $r: 1) {
+  $_size: _yek-btn--size($s) * $r;
+  @include yek-size($_size, $_size);
+}
+
+/* variables
+---------------------------- */
+$COLOR_YOUTUBE: #c4302b;
+$COLOR_TWITTER: #00acee;
+$COLOR_TELEGRAM: #0088cc;
+$COLOR_INSTAGRAM: #c13584;
+
+// color
+$body-bg: #888;
+
+/* 3D-BOX ($bx-)
+------------------------- */
+$bx-color--side: #b1b1b1;
+$bx-shadow: -20px 20px 5px rgba($yek-gray--800, 0.5);
+$bx-skew--before: skewY(-45deg);
+$bx-skew--after: skewX(-45deg);
+$bx-rotate--side: rotate(0deg);
+$bx-skew--target: skew(25deg);
+$bx-rotate--target: rotate(-25deg);
+$bx-transform--before: $bx-rotate--side $bx-skew--before;
+$bx-transform--after: $bx-rotate--side $bx-skew--after;
+$bx-transform--target: perspective(1000px) $bx-rotate--target $bx-skew--target;
+$bx-transform-target--hover: $bx-transform--target translate(20px, -20px);
+
+// MIXIN
+@mixin bx-variant($e, $c) {
+  &--#{$e} {
+    background-color: $c;
+    box-shadow: -50px 50px 20px rgba($c, 0.5); // blur: 20px
+    &::before {
+      background-color: lighten($c, 7);
+    }
+    &::after {
+      background-color: lighten($c, 14);
+    }
+  }
+}

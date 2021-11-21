@@ -1,0 +1,21 @@
+@use 'sass:map' as MAP;
+@use './_str.scss' as _;
+
+$map: (
+  'a': (
+    'b': (
+      'c': 'yes i`m in here...',
+    ),
+  ),
+  'c': 'no i`m not in there...',
+);
+
+@function get($keys, $map) {
+  $separator: ':';
+  $key-list: str.split($keys, $separator);
+  @return MAP.get($map, $key-list...);
+}
+
+@debug #{MAP.get($map, 'a', 'b', 'c')};
+@debug MAP.get($map, 'c');
+@debug MAP.get($map, _.split('c', ':')...);
