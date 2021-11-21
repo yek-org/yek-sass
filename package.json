@@ -1,12 +1,21 @@
 {
-  "name": "example-import-scss-how",
+  "name": "@yek/sass",
   "version": "1.0.0",
-  "description": "an example of how import scss file inside a scss file (just tried)",
-  "main": "index.js",
+  "description": "the Sass/SCSS library with useful mixins, functions and more features",
+  "main": "index.scss",
   "scripts": {
+    "watch": "",
+    "compile": "",
     "test": "echo \"test: OK\" && exit 0"
   },
-  "keywords": ["sass", "scss", "import-scss", "node-sass", "import", "sass-module"],
+  "keywords": [
+    "sass",
+    "scss",
+    "import-scss",
+    "node-sass",
+    "import",
+    "sass-module"
+  ],
   "author": {
     "name": "miko-github",
     "email": "mikoloism.github@gmail.com",
