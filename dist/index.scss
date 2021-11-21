@@ -1,7 +1,22 @@
-/* [ VERSION : 2.0.1 ] */
+/* [ VERSION : 2.0.2 ] */
 
-@import './mixins/';
+/// DEPENDENCIES //
+@use 'sass:list' as LIST;
+@use 'sass:string' as STR;
+@use 'sass:meta' as META;
+
+// UTILS //
 @import './utils/units';
+@import './utils/map/map';
+@import './utils/string/length';
+@import './utils/string/split';
+
+// MIXIN //
+@import './mixins/size';
+@import './mixins/mixins';
+@import './mixins/breakpoints';
+@import './mixins/flex';
+@import './mixins/body';
 
 // google fonts
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
@@ -54,10 +69,6 @@ $breakpoints: (
   }
 }
 
-
-@import './mixins';
-@import './body';
-@import './breakpoints';
 
 @mixin --clear-list {
   list-style-type: none;
@@ -300,8 +311,6 @@ $breakpoints: (
 ) {
 }
 
-@use 'sass:string' as STR;
-
 // sass default funciton have warning
 @function unit($value) {
   @return STR.slice($value * 0 + '', 2, -1);
@@ -371,25 +380,6 @@ $breakpoints: (
   @return unit($value) == '';
 }
 
-@use 'sass:map' as MAP;
-/// @param {String|Map|List} $map
-/// @param {String|Number} $path|$keys|$index
-/// @param {String} $sep [':'|'.'|'-'|' ']
-@function deprecated__get($map, $keys) {
-  $separator: ':';
-  $key-list: split($keys, $separator);
-  @return MAP.get($map, $key-list...);
-}
-
-@forward 'sass:string';
-@import './_length.scss';
-@import './_split.scss';
-
-/// dependencies
-@use 'sass:list' as LIST;
-@use 'sass:string' as STR;
-@use 'sass:meta' as META;
-
 /// length
 /// @group function, string
 /// @param {String} $string
@@ -406,10 +396,6 @@ $breakpoints: (
 @function len($collection) {
   @return length($collection);
 }
-
-/// dependencies
-@use 'sass:list' as LIST;
-@use 'sass:string' as STR;
 
 /// split without delimiter
 /// @access private
@@ -483,4 +469,14 @@ $breakpoints: (
     // else seprator passed
     @return _split-by-sep($string, $sep);
   }
+}
+
+@use 'sass:map' as MAP;
+/// @param {String|Map|List} $map
+/// @param {String|Number} $path|$keys|$index
+/// @param {String} $sep [':'|'.'|'-'|' ']
+@function deprecated__get($map, $keys) {
+  $separator: ':';
+  $key-list: split($keys, $separator);
+  @return MAP.get($map, $key-list...);
 }
