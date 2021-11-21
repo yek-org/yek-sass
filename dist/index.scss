@@ -1,33 +1,10 @@
-/* [ VERSION : 2.0.4 ] */
+/* [ VERSION : 2.0.5 ] */
 
 /// DEPENDENCIES //
 @use 'sass:list' as LIST;
 @use 'sass:string' as STR;
 @use 'sass:meta' as META;
 @use 'sass:map' as MAP;
-
-// google fonts
-@import url('https://fonts.googleapis.com/css?family=Montserrat');
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  transition: 0.2s ease all;
-}
-
-body,
-html {
-  margin: 0;
-  padding: 0;
-  font-family: 'Montserrat', 'sans-serif';
-}
-
-body {
-  @include flex(column);
-  @include width(100vw);
-  @include height($min: 100vh);
-}
 
 $breakpoints: (
   'small': (
@@ -299,6 +276,29 @@ $breakpoints: (
 ) {
 }
 
+// google fonts
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  transition: 0.2s ease all;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', 'sans-serif';
+}
+
+body {
+  @include flex(column);
+  @include width(100vw);
+  @include height($min: 100vh);
+}
+
 // sass default funciton have warning
 @function unit($value) {
   @return STR.slice($value * 0 + '', 2, -1);
@@ -366,6 +366,15 @@ $breakpoints: (
 // @from `https://github.com/yek-org/yek-sass`
 @function is-unitless($value) {
   @return unit($value) == '';
+}
+
+/// @param {String|Map|List} $map
+/// @param {String|Number} $path|$keys|$index
+/// @param {String} $sep [':'|'.'|'-'|' ']
+@function deprecated__get($map, $keys) {
+  $separator: ':';
+  $key-list: split($keys, $separator);
+  @return MAP.get($map, $key-list...);
 }
 
 /// length
@@ -457,13 +466,4 @@ $breakpoints: (
     // else seprator passed
     @return _split-by-sep($string, $sep);
   }
-}
-
-/// @param {String|Map|List} $map
-/// @param {String|Number} $path|$keys|$index
-/// @param {String} $sep [':'|'.'|'-'|' ']
-@function deprecated__get($map, $keys) {
-  $separator: ':';
-  $key-list: split($keys, $separator);
-  @return MAP.get($map, $key-list...);
 }
