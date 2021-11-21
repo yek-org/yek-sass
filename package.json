@@ -1,10 +1,10 @@
 {
   "name": "@yek/sass",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "the Sass/SCSS library with useful mixins, functions and more features",
   "main": "index.scss",
   "scripts": {
-    "watch": "",
+    "watch": "sass --watch",
     "compile": "",
     "test": "echo \"test: OK\" && exit 0"
   },
@@ -16,6 +16,12 @@
     "import",
     "sass-module"
   ],
+  "readme": "./README.md",
+  "repository": {
+    "type": "git",
+    "directory": "",
+    "url": "https://github.com/yek-org/yek-sass.git"
+  },
   "author": {
     "name": "miko-github",
     "email": "mikoloism.github@gmail.com",
