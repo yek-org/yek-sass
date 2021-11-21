@@ -1,8 +1,8 @@
 {
   "name": "@yek/sass",
-  "version": "1.0.8",
+  "version": "2.0.0",
   "description": "the Sass/SCSS library with useful mixins, functions and more features",
-  "main": "index.scss",
+  "main": "dist/index.scss",
   "scripts": {
     "watch": "sass --watch",
     "compile": "",
@@ -27,5 +27,9 @@
     "email": "mikoloism.github@gmail.com",
     "url": "https://github.com/miko-github"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1"
+  }
 }
