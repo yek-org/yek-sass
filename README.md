@@ -1,6 +1,6 @@
 # YEK/SASS
 
-> the full list of usefull libraries and resources to make sass styel fastest then past
+> the full list of usefull libraries and resources to make sass styel fastest then past\
 
 ## NAMESPACES
 
