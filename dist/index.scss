@@ -1,9 +1,10 @@
-/* [ VERSION : 2.0.2 ] */
+/* [ VERSION : 2.0.3 ] */
 
 /// DEPENDENCIES //
 @use 'sass:list' as LIST;
 @use 'sass:string' as STR;
 @use 'sass:meta' as META;
+@use 'sass:map' as MAP;
 
 // UTILS //
 @import './utils/units';
@@ -471,7 +472,6 @@ $breakpoints: (
   }
 }
 
-@use 'sass:map' as MAP;
 /// @param {String|Map|List} $map
 /// @param {String|Number} $path|$keys|$index
 /// @param {String} $sep [':'|'.'|'-'|' ']
