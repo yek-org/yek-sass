@@ -1,4 +1,4 @@
-/* [ VERSION : 2.1.1 ] */
+/* [ VERSION : 2.1.2 ] */
 
 /// DEPENDENCIES //
 @use 'sass:list' as LIST;
@@ -247,13 +247,7 @@
 }
 
 //=> [w min max]|w, [h min max]|h, ([w+h min max])|(together: w+h), min, max
-@mixin deprecated__size(
-  $w: null,
-  $h: null,
-  $tog: null,
-  $min: null,
-  $max: null
-) {
+@mixin size($w: null, $h: null, $tog: null, $min: null, $max: null) {
   @if $w ==
     null and
     $h ==
