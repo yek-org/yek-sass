@@ -1,0 +1,36 @@
+// [START _position.scss]
+
+@mixin position(
+  $type: null,
+  $top: null,
+  $left: null,
+  $bottom: null,
+  $right: null
+) {
+  @if $type not null {
+    position: $type;
+  }
+  @if $top not null {
+    top: $top;
+  }
+  @if $left not null {
+    left: $left;
+  }
+  @if $bottom not null {
+    bottom: $bottom;
+  }
+  @if $right not null {
+    right: $right;
+  }
+}
+@mixin absolute($top: null, $left: null, $bottom: null, $right: null) {
+  @include position(absolute, $top, $left, $bottom, $right);
+}
+@mixin fixed($top: null, $left: null, $bottom: null, $right: null) {
+  @include position(fixed, $top, $left, $bottom, $right);
+}
+@mixin relative($top: null, $left: null, $bottom: null, $right: null) {
+  @include position(relative, $top, $left, $bottom, $right);
+}
+
+// [END _position.scss]

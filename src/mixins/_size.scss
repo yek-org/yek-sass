@@ -1,11 +1,49 @@
-// FIXME : @use './../../utils/map';
+// [START _size.scss]
 
-//=> [w min max]|w, min, max, (together: min+max+w)
-@mixin deprecated__width($w: null, $min: null, $max: null, $tog: null) {
+@mixin width($w: null, $max: null, $min: null, $tog: null) {
+  @if $w == null and $max == null and $min == null {
+    @if $tog == null {
+      width: 100%;
+      max-width: 100%;
+      min-width: 100%;
+    } @else {
+      width: $tog;
+      max-width: $tog;
+      min-width: $tog;
+    }
+  }
+  @if $w not null {
+    width: $w;
+  }
+  @if $max not null {
+    max-width: $max;
+  }
+  @if $min not null {
+    min-width: $min;
+  }
 }
 
-//=> [w min max]|w, min, max, (together: min+max+h)
-@mixin deprecated__height($h: null, $min: null, $max: null, $tog: null) {
+@mixin height($h: null, $max: null, $min: null, $tog: null) {
+  @if $h == null and $max == null and $min == null {
+    @if $tog == null {
+      height: 100%;
+      max-height: 100%;
+      min-height: 100%;
+    } @else {
+      height: $tog;
+      max-height: $tog;
+      min-height: $tog;
+    }
+  }
+  @if $h not null {
+    height: $h;
+  }
+  @if $max not null {
+    max-height: $max;
+  }
+  @if $min not null {
+    min-height: $min;
+  }
 }
 
 //=> [w min max]|w, [h min max]|h, ([w+h min max])|(together: w+h), min, max
@@ -16,4 +54,56 @@
   $min: null,
   $max: null
 ) {
+  @if $w ==
+    null and
+    $h ==
+    null and
+    $tog ==
+    null and
+    $min ==
+    null and
+    $max ==
+    null
+  {
+    width: 100%;
+    height: 100%;
+  }
+  @if $w ==
+    null and
+    $h ==
+    null and
+    $tog not
+    null and
+    $min ==
+    null and
+    $max ==
+    null
+  {
+    @if type-of($tog) == 'list' {
+      @include width(LIST.nth($tog, 1), LIST.nth($tog, 2), LIST.nth($tog, 3));
+      @include height(LIST.nth($tog, 1), LIST.nth($tog, 2), LIST.nth($tog, 3));
+    } @else {
+      width: $tog;
+      height: $tog;
+    }
+  }
+  // TODO : max and min together
+  // NOTE : max = ((width, height)) | (width & height)
+  // NOTE : min = ((width, height)) | (width & height)
+  @if $w not null {
+    @if type-of($w) == 'list' {
+      @include width(LIST.nth($w, 1), LIST.nth($w, 2), LIST.nth($w, 3));
+    } @else {
+      width: $w;
+    }
+  }
+  @if $h not null {
+    @if type-of($h) == 'list' {
+      @include height(LIST.nth($h, 1), LIST.nth($h, 2), LIST.nth($h, 3));
+    } @else {
+      height: $h;
+    }
+  }
 }
+
+// [END _size.scss]

@@ -1,0 +1,31 @@
+// [START _flex.scss]
+
+@mixin flex($dir: row, $wrap: wrap) {
+  display: flex;
+  flex-direction: $dir;
+  flex-wrap: $wrap;
+}
+@mixin align($ver: null, $hor: null, $content: null) {
+  @if $hor == null and $ver == null {
+    align-items: center;
+    justify-content: center;
+  }
+  @if $hor not null {
+    align-items: $hor; // hor
+  }
+  @if $ver not null {
+    justify-content: $ver; // ver
+  }
+  @if $content not null {
+    align-content: $content;
+  }
+}
+@mixin aligns($align: center) {
+  @include align($align, $align, $align);
+}
+@mixin --fcenter {
+  @include flex;
+  @include aligns;
+}
+
+// [END _flex.scss]

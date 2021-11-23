@@ -1,0 +1,45 @@
+// [START _transform.scss]
+// NOTE : DEPRECATED (on v1.0.5)
+
+@mixin transform($transform: null) {
+  @if $transform not null {
+    transform: $transform;
+  }
+}
+@mixin translate($x: null, $y: null, $z: null) {
+  @if $z not null {
+    @include transform(translateZ($z));
+  }
+  @if $y not null {
+    @include transform(translateY($y));
+  }
+  @if $x not null {
+    @include transform(translateX($x));
+  }
+}
+
+@mixin scale($x: null, $y: null, $z: null) {
+  @if $z not null {
+    @include transform(scaleZ($z));
+  }
+  @if $y not null {
+    @include transform(scaleY($y));
+  }
+  @if $x not null {
+    @include transform(scaleX($x));
+  }
+}
+
+@mixin rotate($z: null, $x: null, $y: null) {
+  @if $z not null {
+    @include transform(rotateZ($z));
+  }
+  @if $y not null {
+    @include transform(rotateY($y));
+  }
+  @if $x not null {
+    @include transform(rotateX($x));
+  }
+}
+
+// [END _transform.scss]
