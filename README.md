@@ -1,7 +1,7 @@
 # YEK/SASS
 
 > the full list of usefull libraries and resources to make sass styel fastest then past\
-> latest version : v2.1.0 (23 Nov 2021)
+> latest version : v2.1.1 (23 Nov 2021)
 
 ## NAMESPACES
 
