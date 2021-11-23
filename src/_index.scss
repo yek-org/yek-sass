@@ -1,14 +1,4 @@
 @import './dependencies';
 
-// UTILS //
-@import './utils/units';
-@import './utils/map/map';
-@import './utils/string/length';
-@import './utils/string/split';
-
-// MIXIN //
-@import './mixins/size';
-@import './mixins/mixins';
-@import './mixins/breakpoints';
-@import './mixins/flex';
-@import './mixins/body';
+@import './utils/';
+@import './mixins/';
