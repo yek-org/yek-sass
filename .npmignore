@@ -1,2 +1,6 @@
 src/**
-utils/**
+_TEMP_/**
+_branches_/**
+gulpfile.js
+.vscode/settings.json
+.prettierrc
