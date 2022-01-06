@@ -1,5 +1,3 @@
-@import './string/replace';
-
 // NOTE : may this be confiusing, then rename to `val` or `value`
 @function val($name) {
   @return unquote('var(--#{$name})');
