@@ -1,0 +1,50 @@
+@import './string/replace';
+
+// NOTE : may this be confiusing, then rename to `val` or `value`
+@function var($name) {
+  @return unquote('var(--#{$name})');
+}
+
+// HINT : set variable property with value
+@mixin set-var($name, $value, $method: null) {
+  @if $method not null {
+    @if $method == '#' or $method == 'hex' {
+      --#{$name}: #{unquote('##{str-replace(' #{$value}', ' ', )}')};
+    } @else {
+      --#{$name}: #{'#{$method}(#{$value})'};
+    }
+  } @else {
+    --#{$name}: #{$value};
+  }
+  --yek-#{$name}: #{$value};
+}
+
+// HINT : get variable color with `rgba` method
+@function color($variable, $alpha: 1, $sep: '/', $method: 'rgb') {
+  @return unquote('#{$method}(#{var($variable)} #{$sep} #{$alpha})');
+}
+
+// HINT : set the `:root` selector variable
+@mixin set-root($variables) {
+  @at-root :root {
+    @each $name, $value in $variables {
+      @include set-var($name, $value);
+    }
+  }
+}
+
+// HINT : if you want to use hex or hsl color method use this for initial and variable value setting
+@function to-rgb($color, $sep: ' ') {
+  $red: red($color);
+  $green: green($color);
+  $blue: blue($color);
+  @return unquote('#{$red}#{$sep}#{$green}#{$sep}#{$blue}');
+}
+
+// HINT : if you want to use hex or rgb color method, use this for initial and variable value setting
+@function to-hsl($color, $sep: ' ') {
+  $hue: hue($color);
+  $saturation: saturation($color);
+  $lightness: lightness($color);
+  @return unquote('#{$hue}#{$sep}#{$saturation}#{$sep}#{$lightness}');
+}
