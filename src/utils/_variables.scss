@@ -8,11 +8,6 @@
   --#{$name}: #{$value};
 }
 
-// HINT : get variable color with `rgba` method
-@function color($var-name) {
-  @return #{val($var-name)};
-}
-
 // HINT : set the `:root` selector variable
 @mixin set-root($variables) {
   @at-root :root {
@@ -20,32 +15,4 @@
       @include set-var($name, $value);
     }
   }
-}
-
-// HINT : if you want to use hex or hsl color method use this for initial and variable value setting
-@function to-rgb($color, $alpha: 1, $sep: ' ') {
-  $red: red($color);
-  $green: green($color);
-  $blue: blue($color);
-  $res: null;
-  @if $sep == ' ' {
-    $res: '#{$red}#{$sep}#{$green}#{$sep}#{$blue} / #{$alpha}';
-  } @else {
-    $res: '#{$red}#{$sep}#{$green}#{$sep}#{$blue}#{$sep}#{$alpha}';
-  }
-  @return unquote('rgb(#{$res})');
-}
-
-// HINT : if you want to use hex or rgb color method, use this for initial and variable value setting
-@function to-hsl($color, $alpha: 1, $sep: ' ') {
-  $hue: hue($color);
-  $saturation: saturation($color);
-  $lightness: lightness($color);
-  $res: null;
-  @if $sep == ' ' {
-    $res: '#{$hue}#{$sep}#{$saturation}#{$sep}#{$lightness} / #{$alpha}';
-  } @else {
-    $res: '#{$hue}#{$sep}#{$saturation}#{$sep}#{$lightness}#{$sep}#{$alpha}';
-  }
-  @return unquote('hsl(#{$res})');
 }

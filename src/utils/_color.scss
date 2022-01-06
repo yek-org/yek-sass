@@ -1,0 +1,32 @@
+// HINT : convert any color to rgb/rgba
+@function to-rgb($color, $alpha: 1, $sep: ' ') {
+  $red: red($color);
+  $green: green($color);
+  $blue: blue($color);
+  $res: null;
+  @if $sep == ' ' {
+    $res: '#{$red}#{$sep}#{$green}#{$sep}#{$blue} / #{$alpha}';
+  } @else {
+    $res: '#{$red}#{$sep}#{$green}#{$sep}#{$blue}#{$sep}#{$alpha}';
+  }
+  @return unquote('rgb(#{$res})');
+}
+
+// HINT : convert any color to hsl/hsla
+@function to-hsl($color, $alpha: 1, $sep: ' ') {
+  $hue: hue($color);
+  $saturation: saturation($color);
+  $lightness: lightness($color);
+  $res: null;
+  @if $sep == ' ' {
+    $res: '#{$hue}#{$sep}#{$saturation}#{$sep}#{$lightness} / #{$alpha}';
+  } @else {
+    $res: '#{$hue}#{$sep}#{$saturation}#{$sep}#{$lightness}#{$sep}#{$alpha}';
+  }
+  @return unquote('hsl(#{$res})');
+}
+
+// HINT : get variable color with `rgba` method
+@function color($var-name) {
+  @return #{val($var-name)};
+}
