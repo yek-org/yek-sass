@@ -1,27 +1,18 @@
 @import './string/replace';
 
 // NOTE : may this be confiusing, then rename to `val` or `value`
-@function var($name) {
+@function val($name) {
   @return unquote('var(--#{$name})');
 }
 
 // HINT : set variable property with value
-@mixin set-var($name, $value, $method: null) {
-  @if $method not null {
-    @if $method == '#' or $method == 'hex' {
-      --#{$name}: #{unquote('##{str-replace(' #{$value}', ' ', )}')};
-    } @else {
-      --#{$name}: #{'#{$method}(#{$value})'};
-    }
-  } @else {
-    --#{$name}: #{$value};
-  }
-  --yek-#{$name}: #{$value};
+@mixin set-var($name, $value) {
+  --#{$name}: #{$value};
 }
 
 // HINT : get variable color with `rgba` method
-@function color($variable, $alpha: 1, $sep: '/', $method: 'rgb') {
-  @return unquote('#{$method}(#{var($variable)} #{$sep} #{$alpha})');
+@function color($var-name) {
+  @return #{val($var-name)};
 }
 
 // HINT : set the `:root` selector variable
@@ -34,17 +25,29 @@
 }
 
 // HINT : if you want to use hex or hsl color method use this for initial and variable value setting
-@function to-rgb($color, $sep: ' ') {
+@function to-rgb($color, $alpha: 1, $sep: ' ') {
   $red: red($color);
   $green: green($color);
   $blue: blue($color);
-  @return unquote('#{$red}#{$sep}#{$green}#{$sep}#{$blue}');
+  $res: null;
+  @if $sep == ' ' {
+    $res: '#{$red}#{$sep}#{$green}#{$sep}#{$blue} / #{$alpha}';
+  } @else {
+    $res: '#{$red}#{$sep}#{$green}#{$sep}#{$blue}#{$sep}#{$alpha}';
+  }
+  @return unquote('rgb(#{$res})');
 }
 
 // HINT : if you want to use hex or rgb color method, use this for initial and variable value setting
-@function to-hsl($color, $sep: ' ') {
+@function to-hsl($color, $alpha: 1, $sep: ' ') {
   $hue: hue($color);
   $saturation: saturation($color);
   $lightness: lightness($color);
-  @return unquote('#{$hue}#{$sep}#{$saturation}#{$sep}#{$lightness}');
+  $res: null;
+  @if $sep == ' ' {
+    $res: '#{$hue}#{$sep}#{$saturation}#{$sep}#{$lightness} / #{$alpha}';
+  } @else {
+    $res: '#{$hue}#{$sep}#{$saturation}#{$sep}#{$lightness}#{$sep}#{$alpha}';
+  }
+  @return unquote('hsl(#{$res})');
 }
