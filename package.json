@@ -4,6 +4,7 @@
   "description": "the Sass/SCSS library with useful mixins, functions and more features",
   "main": "dist/index.scss",
   "scripts": {
+    "publish": "npm publish",
     "build": "npx gulp default",
     "test": "echo \"test: OK\" && exit 0"
   },
