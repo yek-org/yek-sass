@@ -14,6 +14,8 @@ gulp.task('default', function () {
         'src/utils/string/_length.scss',
         'src/utils/string/_split.scss',
         'src/utils/_units.scss',
+        'src/utils/_variables.scss',
+        'src/utils/_color.scss',
         'src/mixins/_flex.scss',
         'src/mixins/_size.scss',
         'src/mixins/_position.scss',
@@ -21,6 +23,7 @@ gulp.task('default', function () {
         'src/mixins/_mixins.scss',
         'src/mixins/_transform.scss',
         'src/mixins/_style.scss',
+        'src/mixins/_default.scss',
       ])
       .pipe(sourcemaps.init())
       .pipe(concat('index.scss'))
