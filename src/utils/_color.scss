@@ -26,7 +26,7 @@
   @return unquote('hsl(#{$res})');
 }
 
-// HINT : get variable color with `rgba` method
+// HINT : get variable color with `hsl` method
 @function color($var-name) {
-  @return #{val($var-name)};
+  @return #{val('color-#{$var-name}')};
 }
