@@ -1,6 +1,6 @@
 {
   "name": "@yek/sass",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "the Sass/SCSS library with useful mixins, functions and more features",
   "main": "dist/index.scss",
   "scripts": {
