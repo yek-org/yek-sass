@@ -1,0 +1,68 @@
+@mixin clear-root {
+  /* __[ FONT'S ]__ */
+  @import url('https://fonts.googleapis.com/css?family=Montserrat'); // NOTE : Montserrat
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap'); // NOTE : Roboto
+  @import url('https://fonts.googleapis.com/css2?family=Lalezar&display=swap'); // NOTE : lalezar font
+  @import url('https://cdn.jsdelivr.net/npm/yekan-font@1.0.0/css/yekan-font.min.css'); // NOTE : yekan font
+
+  /* __[ VARIABLE ]__ */
+  $color-primary: hsl(229, 53%, 22%);
+  $color-secondary: hsl(222, 35%, 74%);
+  $color-gray: hsl(215, 46%, 91%);
+  $color-light-gray: hsl(220, 53%, 97%);
+  $color-white: hsl(0, 0%, 100%);
+  $color-black: hsl(275, 10%, 24%);
+  $color-input-hover: hsl(222 35% 74% / 60%); // NOTE : $color-secondary / 60%
+  $color-input-focus: hsl(229 53% 22% / 45%); // NOTE : $color-primary / 45%
+  $color-input-error: hsl(17deg 100% 56% / 60%);
+  $color-input-warning: hsl(49deg 51% 43% / 60%);
+  $color-input-success: hsl(120deg 69% 29% / 45%);
+  $color-input-disabled: $color-gray;
+  $font-proxima: 'proxima-soft', 'Proxima Soft', 'Proxima Nova Soft', Helvetica,
+    Arial, sans-serif;
+  $font-family: 'Roboto', 'Montserrat', 'sans-serif';
+  $font-persian: 'Yekan', 'Lalezar', cursive;
+
+  /* __[ :ROOT ]__ */
+  @include set-root(
+    (
+      color-primary: $color-primary,
+      color-secondary: $color-secondary,
+      color-gray: $color-gray,
+      color-light-gray: $color-light-gray,
+      color-white: $color-white,
+      color-black: $color-black,
+      color-input-hover: $color-input-hover,
+      color-input-focus: $color-input-focus,
+      color-input-error: $color-input-error,
+      color-input-warning: $color-input-warning,
+      color-input-success: $color-input-success,
+      color-input-disabled: $color-input-disabled,
+      font-family: $font-family,
+      font-persian: $font-persian,
+      font-proxima: $font-proxima,
+    )
+  );
+
+  /* __[ STYLE ]__ */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    transition: 0.2s ease all;
+  }
+
+  body,
+  html {
+    padding: 0;
+    margin: 0;
+    font-family: val(font-family);
+  }
+
+  body {
+    @include flex(column);
+    width: 100vw;
+    min-height: 100vh;
+    font-family: val(font-family);
+  }
+}
