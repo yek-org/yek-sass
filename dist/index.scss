@@ -1,4 +1,4 @@
-/* [ VERSION : 2.2.3 ] */
+/* [ VERSION : 2.2.4 ] */
 
 /// DEPENDENCIES //
 @use 'sass:list' as LIST;
@@ -434,15 +434,15 @@ $breakpoints: (
 @mixin --clear-input(
   $fluid: false,
   $color: (
-    focus: #999,
-    hover: #ccc,
+    focus: color(input-focus),
+    hover: color(input-hover),
   )
 ) {
   letter-spacing: 1.7px;
   @include --clear-space;
   @include --clear-border;
 
-  @if ($fluid is true) {
+  @if ($fluid == true) {
     @include size($tog: 100%);
   } @else {
     @include size(150px, 50px);
@@ -451,10 +451,10 @@ $breakpoints: (
   transition: 0.2s 0s ease-out;
 
   &:hover {
-    box-shadow: 0 0 0 0.25rem rgba(#{unquote(map-get($color, hover))} / 0.7);
+    box-shadow: 0 0 0 0.25rem #{map-get($color, hover)};
   }
   &:focus {
-    box-shadow: 0 0 0 0.25rem rgba(#{unquote(map-get($color, focus))} / 0.45);
+    box-shadow: 0 0 0 0.25rem #{map-get($color, focus)};
   }
 }
 
