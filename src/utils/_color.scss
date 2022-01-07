@@ -30,3 +30,10 @@
 @function color($var-name) {
   @return #{val('color-#{$var-name}')};
 }
+@mixin set-colors($colors) {
+  & {
+    @each $name, $value in $colors {
+      @include set-var(#{unquote('color-#{$name}')}, #{$value});
+    }
+  }
+}
