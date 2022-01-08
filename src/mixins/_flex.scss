@@ -1,4 +1,34 @@
 // [START _flex.scss]
+@mixin grid(
+  $flow: row,
+  $cols: null,
+  $rows: null,
+  $gap: null,
+  $temp: (
+    rows: null,
+    cols: null,
+  )
+) {
+  grid-auto-flow: $flow;
+
+  @if $gap not null {
+    grid-gap: $gap;
+  }
+
+  @if map-get($temp, rows) not null {
+    grid-template-rows: #{map-get($temp, rows)};
+  }
+  @if map-get($temp, cols) not null {
+    grid-template-columns: #{map-get($temp, cols)};
+  }
+
+  @if $cols not null {
+    grid-auto-columns: $cols;
+  }
+  @if $rows not null {
+    grid-auto-rows: $rows;
+  }
+}
 
 @mixin flex($dir: row, $wrap: wrap) {
   display: flex;
