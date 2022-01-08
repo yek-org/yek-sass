@@ -1,4 +1,4 @@
-/* [ VERSION : 3.0.0 ] */
+/* [ YEK/SASS - VERSION : 3.1.0 ] */
 
 /// DEPENDENCIES //
 @use 'sass:list' as LIST;
@@ -226,6 +226,36 @@
 }
 
 // [START _flex.scss]
+@mixin grid(
+  $flow: row,
+  $cols: null,
+  $rows: null,
+  $gap: null,
+  $temp: (
+    rows: null,
+    cols: null,
+  )
+) {
+  grid-auto-flow: $flow;
+
+  @if $gap not null {
+    grid-gap: $gap;
+  }
+
+  @if map-get($temp, rows) not null {
+    grid-template-rows: #{map-get($temp, rows)};
+  }
+  @if map-get($temp, cols) not null {
+    grid-template-columns: #{map-get($temp, cols)};
+  }
+
+  @if $cols not null {
+    grid-auto-columns: $cols;
+  }
+  @if $rows not null {
+    grid-auto-rows: $rows;
+  }
+}
 
 @mixin flex($dir: row, $wrap: wrap) {
   display: flex;
@@ -250,8 +280,46 @@
 @mixin aligns($align: center) {
   @include align($align, $align, $align);
 }
-@mixin --fcenter {
-  @include flex;
+@mixin center($type: flex-row) {
+  @if $type ==
+    flex or
+    $type ==
+    flex-row or
+    $type ==
+    fr or
+    $type ==
+    frow or
+    $type ==
+    f-row
+  {
+    @include flex;
+  } @else if
+    $type ==
+    flex-column or
+    $type ==
+    fc or
+    $type ==
+    f-col or
+    $type ==
+    f-column or
+    $type ==
+    flex-col
+  {
+    @include flex(column);
+  } @else if $type == grid-row or $type == g-row {
+    @include grid(row);
+  } @else if
+    $type ==
+    grid-column or
+    $type ==
+    g-col or
+    $type ==
+    grid-col or
+    $type ==
+    g-column
+  {
+    @include grid(column);
+  }
   @include aligns;
 }
 

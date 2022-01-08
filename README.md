@@ -3,7 +3,7 @@
 ⚠️ WARNING: this library is still under development! ⚠️
 
 > the full list of usefull libraries and resources to make sass styel fastest then past\
-> latest version : v3.0.0 (08 Jan 2022)
+> latest version : v3.1.0 (08 Jan 2022)
 
 ### Mixins & Functions
 
