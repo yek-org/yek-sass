@@ -53,8 +53,46 @@
 @mixin aligns($align: center) {
   @include align($align, $align, $align);
 }
-@mixin --fcenter {
-  @include flex;
+@mixin center($type: flex-row) {
+  @if $type ==
+    flex or
+    $type ==
+    flex-row or
+    $type ==
+    fr or
+    $type ==
+    frow or
+    $type ==
+    f-row
+  {
+    @include flex;
+  } @else if
+    $type ==
+    flex-column or
+    $type ==
+    fc or
+    $type ==
+    f-col or
+    $type ==
+    f-column or
+    $type ==
+    flex-col
+  {
+    @include flex(column);
+  } @else if $type == grid-row or $type == g-row {
+    @include grid(row);
+  } @else if
+    $type ==
+    grid-column or
+    $type ==
+    g-col or
+    $type ==
+    grid-col or
+    $type ==
+    g-column
+  {
+    @include grid(column);
+  }
   @include aligns;
 }
 
