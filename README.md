@@ -5,6 +5,43 @@
 > the full list of usefull libraries and resources to make sass styel fastest then past\
 > latest version : v3.1.0 (08 Jan 2022)
 
+----
+
+[![](https://data.jsdelivr.com/v1/package/npm/@yek/sass/badge)](https://www.jsdelivr.com/package/npm/@yek/sass)
+
+
+## Installation (v 3.1.0)
+
+### CDN ([jsdelivr](https://www.jsdelivr.com/package/npm/@yek/sass))
+`https://cdn.jsdelivr.net/npm/@yek/sass@3.1.0/dist/index.scss`
+or
+`https://cdn.jsdelivr.net/gh/yek-org/yek-sass@3.1.0/dist/index.scss`
+
+### CDN (unpkg)
+`unpkg.com/@yek/sass@3.1.0/dist/index.scss`
+
+### Node & NPM
+`npm i -D @yek/sass`
+or
+`npm install --save-dev @yek/sass`
+or
+`npm install --save-dev @yek/sass@3.1.0`
+
+## Import and make Refrence
+if using npm installation, should make refrance to the `node_modules` folder
+with any sub-folder
+
+so, adding below line on the top head of your main sass/scss file
+```scss
+// main.scss 
+@import '../node_module/@yke/sass/dist/index.scss';
+
+// or may be should use
+
+@import '../node_module/@yek/sass/dist/index.scss';
+```
+
+
 ### Mixins & Functions
 
 - flex (flex-dir, flex-wrap, dis:flex)
