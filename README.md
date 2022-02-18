@@ -13,19 +13,36 @@
 ## Installation (v 3.1.0)
 
 ### CDN ([jsdelivr](https://www.jsdelivr.com/package/npm/@yek/sass))
-`https://cdn.jsdelivr.net/npm/@yek/sass@3.1.0/dist/index.scss`
+```
+https://cdn.jsdelivr.net/npm/@yek/sass@3.1.0/dist/index.scss
+```
+
 or
-`https://cdn.jsdelivr.net/gh/yek-org/yek-sass@3.1.0/dist/index.scss`
+
+```
+https://cdn.jsdelivr.net/gh/yek-org/yek-sass@3.1.0/dist/index.scss
+```
 
 ### CDN (unpkg)
-`unpkg.com/@yek/sass@3.1.0/dist/index.scss`
+```
+unpkg.com/@yek/sass@3.1.0/dist/index.scss
+```
 
 ### Node & NPM
-`npm i -D @yek/sass`
+``` bash
+npm i -D @yek/sass
+```
 or
-`npm install --save-dev @yek/sass`
+
+``` bash
+npm install --save-dev @yek/sass
+```
+
 or
-`npm install --save-dev @yek/sass@3.1.0`
+
+``` bash
+npm install --save-dev @yek/sass@3.1.0
+```
 
 ## Import and make Refrence
 if using npm installation, should make refrance to the `node_modules` folder
@@ -35,10 +52,12 @@ so, adding below line on the top head of your main sass/scss file
 ```scss
 // main.scss 
 @import '../node_module/@yke/sass/dist/index.scss';
+```
 
-// or may be should use
+or how many level need to back to parent folder
 
-@import '../node_module/@yek/sass/dist/index.scss';
+```scss
+@import '../../../../../../node_module/@yek/sass/dist/index.scss';
 ```
 
 
