@@ -23,16 +23,19 @@ or
 https://cdn.jsdelivr.net/gh/yek-org/yek-sass@3.1.0/dist/index.scss
 ```
 
+
 ### CDN (unpkg)
+
 ```
 unpkg.com/@yek/sass@3.1.0/dist/index.scss
 ```
 
-### Node & NPM
-``` bash
-npm i -D @yek/sass
-```
-or
+<p>copy and paste which one of above cdn links on your project</p>
+
+
+### npm
+
+<p>execute below one of the below lines with copy and pasting their on your terminal</p>
 
 ``` bash
 npm install --save-dev @yek/sass
@@ -40,8 +43,9 @@ npm install --save-dev @yek/sass
 
 or
 
+shorthand
 ``` bash
-npm install --save-dev @yek/sass@3.1.0
+npm i -D @yek/sass
 ```
 
 ## Import and make Refrence
