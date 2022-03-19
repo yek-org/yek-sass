@@ -65,22 +65,16 @@ or how many level need to back to parent folder
 ```
 
 
-### Mixins & Functions
+## Mixins & Functions
 
-- flex (flex-dir, flex-wrap, dis:flex)
-- size (width (max, min, offset), height (max, min, offset)
-- align (justify, items, content, text, vertical)
-- variant (bg, color) [under written / not completed]
-- border
-
-- split
-- is-\* (number, pixel and other type)
-
-### Variables and Colors
-
-to read css custom properties (variables) instead of using `var` native function with `--` prefix, using `val` function without `--` prefix and if you want to using color variable with `color-` prefix, you can use the `color` function instead of `val` function
-
-#### SASS/SCSS
+<details>
+  <summary id="color-schema"><strong>Color Schema and Variable</strong></summary>
+  
+  <p>
+    to read css custom properties (variables) instead of using `var` native function with `--` prefix, using `val` function without `--` prefix and if you want to using color variable with `color-` prefix, you can use the `color` function instead of `val` function
+  </p>
+  
+  <p><strong>SCSS</strong></p>
 
 ```scss
 selector {
@@ -92,7 +86,7 @@ selector {
 }
 ```
 
-#### CSS
+  <p><strong>CSS</strong></p>
 
 ```css
 selector {
@@ -102,6 +96,8 @@ selector {
 
 to setup the `:root` variable you can use the `set-root` mixin to make it easy
 
+  <p><strong>SCSS</strong></p>
+  
 ```scss
 @include set-root(
   (
@@ -109,6 +105,8 @@ to setup the `:root` variable you can use the `set-root` mixin to make it easy
   )
 );
 ```
+  
+  <p><strong>CSS</strong></p>
 
 ```css
 :root {
@@ -118,27 +116,34 @@ to setup the `:root` variable you can use the `set-root` mixin to make it easy
 
 and if you want to change the value of the variables or define one of its, just using the `set-var` mixin like below lines:
 
-#### SCSS
+<details>
+  <summary>Example</summary>
+  
+  **SCSS**
 
-```scss
-:root {
-  --my-var: my-initial-value;
-}
-.child {
-  @include set-var(my-var, my-new-value);
-}
-```
+  ```scss
+  :root {
+    --my-var: my-initial-value;
+  }
+  .child {
+    @include set-var(my-var, my-new-value);
+  }
+  ```
 
-#### CSS
+  **CSS**
 
-```css
-:root {
-  --my-var: my-initial-value;
-}
-.child {
-  --my-var: my-new-value;
-}
-```
+  ```css
+  :root {
+    --my-var: my-initial-value;
+  }
+  .child {
+    --my-var: my-new-value;
+  }
+  ```
+
+</details>
+  
+  </details>
 
 #### `split`
 
