@@ -9,29 +9,27 @@
 
 [![](https://data.jsdelivr.com/v1/package/npm/@yek/sass/badge)](https://www.jsdelivr.com/package/npm/@yek/sass)
 
-
 ## Installation (v 3.1.0)
 
-### CDN ([jsdelivr](https://www.jsdelivr.com/package/npm/@yek/sass))
-```
+<h3>CDN<a href="https://www.jsdelivr.com/package/npm/@yek/sass">(jsdelivr)</a></h3>
+
+``` https
 https://cdn.jsdelivr.net/npm/@yek/sass@3.1.0/dist/index.scss
 ```
 
 or
 
-```
+``` https
 https://cdn.jsdelivr.net/gh/yek-org/yek-sass@3.1.0/dist/index.scss
 ```
 
-
 ### CDN (unpkg)
 
-```
+``` https
 unpkg.com/@yek/sass@3.1.0/dist/index.scss
 ```
 
 <p>copy and paste which one of above cdn links on your project</p>
-
 
 ### npm
 
@@ -44,15 +42,18 @@ npm install --save-dev @yek/sass
 or
 
 shorthand
+
 ``` bash
 npm i -D @yek/sass
 ```
 
 ## Import and make Refrence
+
 if using npm installation, should make refrance to the `node_modules` folder
 with any sub-folder
 
 so, adding below line on the top head of your main sass/scss file
+
 ```scss
 // main.scss 
 @import '../node_module/@yke/sass/dist/index.scss';
@@ -64,84 +65,177 @@ or how many level need to back to parent folder
 @import '../../../../../../node_module/@yek/sass/dist/index.scss';
 ```
 
-
 ## Mixins & Functions
 
 <details>
   <summary id="color-schema"><strong>Color Schema and Variable</strong></summary>
   
   <p>
-    to read css custom properties (variables) instead of using `var` native function with `--` prefix, using `val` function without `--` prefix and if you want to using color variable with `color-` prefix, you can use the `color` function instead of `val` function
+    in this library we use variable color schema. so, that meant in yek-scss functions and mixins available to making this task easy.
   </p>
-  
-  <p><strong>SCSS</strong></p>
 
-```scss
-selector {
-  background-color: var(--color-primary);
-  // OR //
-  background-color: val(color-primary);
-  // OR //
-  background-color: color(primary);
-}
-```
+  <h4>Create Color Schema (Sass Variable system)</h4>
+  > this feature under wirtten and not tested
 
-  <p><strong>CSS</strong></p>
+  <p>in this case we syncing sass variable with css variable (custom property) and this featuer just availbe to using native color function who can use with css variables<br />
 
-```css
-selector {
-  background-color: var(--color-primary);
-}
-```
+  to working scss variable, should assigning before `clear-root` and `set-root` mixins
+  </p>
 
-to setup the `:root` variable you can use the `set-root` mixin to make it easy
+  <table>
+    <thead>
+      <tr><th colspan="2">pre-built variables</th></tr>
+      <tr><th>SASS Syntax</th><th>CSS Syntax</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>`$color-primary`</td>
+        <td>`--color-primary`</td>
+      </tr>
+      <tr>
+        <td>`$color-secondary`</td>
+        <td>`--color-secondary`</td>
+      </tr>
+      <tr>
+        <td>`$color-white`</td>
+        <td>`--color-white`</td>
+      </tr>
+      <tr>
+        <td>`$color-black`</td>
+        <td>`--color-black`</td>
+      </tr>
+      <tr>
+        <td>`$color-gray`</td>
+        <td>`--color-gray`</td>
+      </tr>
+      <tr>
+        <td>`$color-light-gray`</td>
+        <td>`--color-light-gray`</td>
+      </tr>
+      <tr>
+        <td>`$font-family`</td>
+        <td>`--font-family`</td>
+      </tr>
+      <tr>
+        <td colspan="2">if you have any variable should be in pre-built variable as schema, you can forking on github and making PR's or Issues on <a href="https://github.com/yek-org/yek-sass">@yek/sass repo</a>
+      </tr>
+    </tbody>
+  </table>
 
-  <p><strong>SCSS</strong></p>
-  
-```scss
-@include set-root(
-  (
-    my-variable-name: my-variable-value,
-  )
-);
-```
-  
-  <p><strong>CSS</strong></p>
+  <p> Now, We using `clear-root` mixin to reset and normilize the defautl css styles and then using `set-root` mixin to setup and assign custom css variable as root level on `:root` selector</p>
 
-```css
-:root {
-  --my-variable-name: my-variable-value;
-}
-```
+  <details>
+    <summary><strong>Code Syntax</strong></summary>
 
-and if you want to change the value of the variables or define one of its, just using the `set-var` mixin like below lines:
 
-<details>
-  <summary>Example</summary>
-  
-  **SCSS**
+    <strong>Sass Syntax</strong>
+
+    ```scss
+    // custom or schema scss variable in here...
+    @include clear-root();
+
+    // if we have custom css variable, we setting it with set-root mixin in here
+    @include set-root((
+      custom-variable: 'custom-name',
+      // and so on
+    ));
+    ```
+
+    <strong>Css Syntax</strong>
+
+    ```css
+    :root {
+      --color-primary: #1a2556;
+      --color-secondary: #a5b3d4;
+      --color-gray: #dde6f3;
+      --color-light-gray: #f3f6fb;
+      --color-white: white;
+      --color-black: #3e3743;
+      --font-family: Roboto, Montserrat, sans-serif;
+    }
+    ```
+
+  </details>
+
+  <p> And, for using on the your stylesheet, your code should be like some thing on the below
+  </p>
+
+  <details>
+    <summary>Code Syntax</summary>
+
+    <strong>Sass Syntax</strong>
+
+    ```scss
+    .selector{
+      // sass native variable
+      background-color: $color-primary;
+
+      // css native variable
+      background-color: var(--color-primary);
+
+      // varialbe function
+      background-color: val(color-primary);
+
+      // color function
+      background-color: color(primary);
+    }
+    ```
+
+    <strong>Css Syntax</strong>
+
+    ```css
+    .selector{
+      /* sass native variable */
+      background-color: #1a2556;
+
+      /* css native variable */
+      background-color: var(--color-primary);
+
+      /* varialbe function */
+      background-color: var(--color-primary);
+
+      /* color function */
+      background-color: var(--color-primary);
+    }
+    ```
+
+  </details>
+
+
+  <h4>`val`, `color` function</h4>
+
+  to using css variable and color variable, these function are easy way to use.
+
+  <h4>how assign new css variable and set value</h4>
+
+  to assigning new css variable and setting value on it or re-assign or changing current value of the any variable, we can use `set-var` mixin to making it easy.
+
+  <strong>Sass Syntax</strong>
 
   ```scss
-  :root {
-    --my-var: my-initial-value;
-  }
-  .child {
-    @include set-var(my-var, my-new-value);
+  @include set-root(( custom-variable : 'custom-value' ));
+
+  .selector::after {
+    @include set-var(custom-variable, 'new-value');
+
+    content: val(custom-variable);
   }
   ```
 
-  **CSS**
+  <strong>Css Syntax</strong>
 
   ```css
   :root {
-    --my-var: my-initial-value;
+    /* another css root variable */
+    --custom-variable: 'custom-variable';
   }
-  .child {
-    --my-var: my-new-value;
+
+  .selector::after {
+    --custom-variable: 'new-value';
+
+    content: var(--custom-variable); /* replaced by 'new-value' */
   }
   ```
-
-</details>
   
   </details>
 
