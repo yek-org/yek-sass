@@ -90,71 +90,123 @@ or how many level need to back to parent folder
   <tr><th>SASS Syntax</th><th>CSS Syntax</th></tr>
   </thead>
   <tbody>
-  <tr>
-  <td>
-    <pre lang="scss">
-      <code>$color-primary</code>
-    </pre>
-  </td>
-  <td>
-    <pre lang="css">
-      <code>--color-primary</code>
-    </pre>
-  </td>
-  </tr>
-  <tr>
-  <td>
-    <pre lang="scss">
-      <code>$color-secondary</code>
-    </pre>
-  </td>
-  <td>
-    <pre lang="css">
-      <code>--color-secondary</code>
-    </pre>
-  </td>
-  </tr>
-  <tr>
-  <td>
-    <pre lang="scss">
-      <code>$color-white</code>
-    </pre>
-  </td>
-  <td>
-    <pre lang="css">
-      <code>--color-white</code>
-    </pre>
-  </td>
-  </tr>
-  <tr>
-  <td>
-  <pre lang="scss">
-    <code>$color-black</code>
-  </pre>
-  </td>
-  <td>
-  <pre lang="css">
-    <code>--color-black</code>
-  </pre>
-  </td>
-  </tr>
-  <tr>
-  <td><code>$color-gray</code></td>
-  <td><code>--color-gray</code></td>
-  </tr>
-  <tr>
-  <td><code>$color-light-gray</code></td>
-  <td><code>--color-light-gray</code></td>
-  </tr>
-  <tr>
-  <td><code>$font-family</code></td>
-  <td><code>--font-family</code></td>
-  </tr>
-  <tr>
-  <td colspan="2">if you have any variable should be in pre-built variable as schema, you can forking on github and making PR's or Issues on <a href="https://github.com/yek-org/yek-sass">@yek/sass</a> repo
-  </tr>
-  </tbody>
-  </table>
+<tr>
+<td>
+
+``` scss
+$color-primary
+```
+
+</td>
+<td>
+
+``` css
+--color-primary
+```
+
+</td>
+</tr>
+<tr>
+<td>
+
+``` scss
+$color-secondary
+```
+
+</td>
+<td>
+
+``` css
+--color-secondary
+```
+
+</td>
+</tr>
+<tr>
+<td>
+
+``` scss
+$color-white
+```
+
+</td>
+<td>
+
+``` css
+--color-white
+```
+
+</td>
+</tr>
+<tr>
+<td>  
+
+``` scss
+$color-black
+```
+
+</td>
+<td>
+
+``` css
+--color-black
+```
+
+</td>
+</tr>
+<tr>
+<td>
+
+``` scss
+$color-gray
+```
+
+</td>
+<td>
+
+``` css
+--color-gray
+```
+
+</td>
+</tr>
+<tr>
+<td>
+
+``` scss
+$color-light-gray
+```
+
+</td>
+<td>
+
+``` css
+--color-light-gray
+```
+
+</td>
+</tr>
+<tr>
+<td>
+
+``` scss
+$font-family
+```
+
+</td>
+<td>
+
+``` css
+--font-family
+```
+
+</td>
+</tr>
+<tr>
+<td colspan="2">if you have any variable should be in pre-built variable as schema, you can forking on github and making PR's or Issues on <a href="https://github.com/yek-org/yek-sass">@yek/sass</a> repo
+</tr>
+</tbody>
+</table>
 
   </details>
 
