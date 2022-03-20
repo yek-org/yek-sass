@@ -325,7 +325,60 @@ $font-family
 
   </details>
   
+</details>
+
+
+<details>
+  <summary><h3>Mixins</h3></summary>
+
+  <details>
+    <summary><h4>Flexbox</h4></summary>
+  
+  <strong>Sass Syntax</strong>
+
+  ``` scss
+  // default parameters $dir = row and $wrap = wrap
+  @include flex;
+
+  // set `flex-direction` column
+  @include flex(column);
+  // or
+  @include flex($dir: column);
+
+  // set `flex-direction` row
+  @include flex;
+  // or
+  @include flex();
+  // or
+  @include flex(row);
+  // or
+  @include flex($dir: row);
+
+  // setting `flex-wrap` nowrap
+  @include flex($wrap: nowrap);
+  
+  // `flex-wrap` wrap
+  @include flex($wrap: wrap);
+  ```
+
+  <strong>Css Syntax</strong>
+
+  ``` css
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  /* for flex column, just flex direction changed */
+  flex-direction: column;
+
+  /* for wrapping fle */
+  ```
+
   </details>
+
+
+</details>
+
 
 #### `split`
 
