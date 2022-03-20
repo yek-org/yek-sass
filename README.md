@@ -65,7 +65,7 @@ or how many level need to back to parent folder
 @import '../../../../../../node_module/@yek/sass/dist/index.scss';
 ```
 
-## Mixins & Functions
+## How to use
 
 <details>
   <summary id="color-schema"><strong>Color Schema and Variable</strong></summary>
@@ -75,7 +75,7 @@ or how many level need to back to parent folder
   </p>
 
   <h4>Create Color Schema (Sass Variable system)</h4>
-> this feature under wirtten and not tested
+  <blockquote>this feature under wirtten and not tested</blockquote>
 
   <p>in this case we syncing sass variable with css variable (custom property) and this featuer just availbe to using native color function who can use with css variables<br />
 
@@ -345,3 +345,10 @@ $font-family
 
 //=> ('H', 'e', 'l', 'l', 'o'); <=//
 ```
+
+
+
+## License
+
+Created with :heart: and :brain: by <a href="https://github.com/yek-org">YEK Inc</a> and Under [MIT](@mit) License <br />
+this project is [Open Source](@open-source), so, if you want to contribute this project just fork and make [PR's]() or [Issuase]()
