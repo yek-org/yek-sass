@@ -91,35 +91,35 @@ or how many level need to back to parent folder
   </thead>
   <tbody>
   <tr>
-    <td>`$color-primary`</td>
-    <td>`--color-primary`</td>
+  <td>`$color-primary`</td>
+  <td>`--color-primary`</td>
   </tr>
   <tr>
-    <td>`$color-secondary`</td>
-    <td>`--color-secondary`</td>
+  <td>`$color-secondary`</td>
+  <td>`--color-secondary`</td>
   </tr>
   <tr>
-    <td>`$color-white`</td>
-    <td>`--color-white`</td>
+  <td>`$color-white`</td>
+  <td>`--color-white`</td>
   </tr>
   <tr>
-    <td>`$color-black`</td>
-    <td>`--color-black`</td>
+  <td>`$color-black`</td>
+  <td>`--color-black`</td>
   </tr>
   <tr>
-    <td>`$color-gray`</td>
-    <td>`--color-gray`</td>
+  <td>`$color-gray`</td>
+  <td>`--color-gray`</td>
   </tr>
   <tr>
-    <td>`$color-light-gray`</td>
-    <td>`--color-light-gray`</td>
+  <td>`$color-light-gray`</td>
+  <td>`--color-light-gray`</td>
   </tr>
   <tr>
-    <td>`$font-family`</td>
-    <td>`--font-family`</td>
+  <td>`$font-family`</td>
+  <td>`--font-family`</td>
   </tr>
   <tr>
-    <td colspan="2">if you have any variable should be in pre-built variable as schema, you can forking on github and making PR's or Issues on <a href="https://github.com/yek-org/yek-sass">@yek/sass</a> repo
+  <td colspan="2">if you have any variable should be in pre-built variable as schema, you can forking on github and making PR's or Issues on <a href="https://github.com/yek-org/yek-sass">@yek/sass</a> repo
   </tr>
   </tbody>
   </table>
