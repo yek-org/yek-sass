@@ -82,47 +82,51 @@ or how many level need to back to parent folder
   to working scss variable, should assigning before `clear-root` and `set-root` mixins
   </p>
 
+  <details>
+  <summary>Varialbe Table</summary>
+
   <table>
-    <thead>
-      <tr><th colspan="2">pre-built variables</th></tr>
-      <tr><th>SASS Syntax</th><th>CSS Syntax</th></tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>`$color-primary`</td>
-        <td>`--color-primary`</td>
-      </tr>
-      <tr>
-        <td>`$color-secondary`</td>
-        <td>`--color-secondary`</td>
-      </tr>
-      <tr>
-        <td>`$color-white`</td>
-        <td>`--color-white`</td>
-      </tr>
-      <tr>
-        <td>`$color-black`</td>
-        <td>`--color-black`</td>
-      </tr>
-      <tr>
-        <td>`$color-gray`</td>
-        <td>`--color-gray`</td>
-      </tr>
-      <tr>
-        <td>`$color-light-gray`</td>
-        <td>`--color-light-gray`</td>
-      </tr>
-      <tr>
-        <td>`$font-family`</td>
-        <td>`--font-family`</td>
-      </tr>
-      <tr>
-        <td colspan="2">if you have any variable should be in pre-built variable as schema, you can forking on github and making PR's or Issues on <a href="https://github.com/yek-org/yek-sass">@yek/sass repo</a>
-      </tr>
-    </tbody>
+  <thead>
+  <tr><th>SASS Syntax</th><th>CSS Syntax</th></tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>`$color-primary`</td>
+    <td>`--color-primary`</td>
+  </tr>
+  <tr>
+    <td>`$color-secondary`</td>
+    <td>`--color-secondary`</td>
+  </tr>
+  <tr>
+    <td>`$color-white`</td>
+    <td>`--color-white`</td>
+  </tr>
+  <tr>
+    <td>`$color-black`</td>
+    <td>`--color-black`</td>
+  </tr>
+  <tr>
+    <td>`$color-gray`</td>
+    <td>`--color-gray`</td>
+  </tr>
+  <tr>
+    <td>`$color-light-gray`</td>
+    <td>`--color-light-gray`</td>
+  </tr>
+  <tr>
+    <td>`$font-family`</td>
+    <td>`--font-family`</td>
+  </tr>
+  <tr>
+    <td colspan="2">if you have any variable should be in pre-built variable as schema, you can forking on github and making PR's or Issues on <a href="https://github.com/yek-org/yek-sass">@yek/sass</a> repo
+  </tr>
+  </tbody>
   </table>
 
-  <p> Now, We using `clear-root` mixin to reset and normilize the defautl css styles and then using `set-root` mixin to setup and assign custom css variable as root level on `:root` selector</p>
+  </details>
+
+  <p> Now, We using <code>clear-root</code> mixin to reset and normilize the defautl css styles and then using <code>set-root</code> mixin to setup and assign custom css variable as root level on <code>:root</code> selector</p>
 
   <details>
     <summary><strong>Code Syntax</strong></summary>
@@ -202,13 +206,16 @@ or how many level need to back to parent folder
   </details>
 
 
-  <h4>`val`, `color` function</h4>
+  <h4><code>val</code>, <code>color</code> function</h4>
 
   to using css variable and color variable, these function are easy way to use.
 
   <h4>how assign new css variable and set value</h4>
 
   to assigning new css variable and setting value on it or re-assign or changing current value of the any variable, we can use `set-var` mixin to making it easy.
+
+  <details>
+  <summary>Code Syntax</summary>
 
   <strong>Sass Syntax</strong>
 
@@ -236,6 +243,8 @@ or how many level need to back to parent folder
     content: var(--custom-variable); /* replaced by 'new-value' */
   }
   ```
+
+  </details>
   
   </details>
 
