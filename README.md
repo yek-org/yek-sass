@@ -129,7 +129,7 @@ or how many level need to back to parent folder
   <p> Now, We using <code>clear-root</code> mixin to reset and normilize the defautl css styles and then using <code>set-root</code> mixin to setup and assign custom css variable as root level on <code>:root</code> selector</p>
 
   <details>
-    <summary><strong>Code Syntax</strong></summary>
+    <summary>Code Syntax</summary>
 
 
   <strong>Sass Syntax</strong>
@@ -205,14 +205,9 @@ or how many level need to back to parent folder
 
   </details>
 
+  <code>val</code> function as native css <code>var</code> function and <code>color</code> function is function to giving any variable using <code>--color-</code> prefixes.
 
-  <h4><code>val</code>, <code>color</code> function</h4>
-
-  to using css variable and color variable, these function are easy way to use.
-
-  <h4>how assign new css variable and set value</h4>
-
-  to assigning new css variable and setting value on it or re-assign or changing current value of the any variable, we can use `set-var` mixin to making it easy.
+  so, to assigning new css variable and setting value on it or re-assign or changing current value of the any variable, we can use <code>set-var</code> mixin to making it easy.
 
   <details>
   <summary>Code Syntax</summary>
