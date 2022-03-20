@@ -68,8 +68,7 @@ or how many level need to back to parent folder
 ## How to use
 
 <details>
-  <summary id="color-schema"><strong>Color Schema and Variable</strong></summary>
-  ---
+  <summary id="color-schema"><h3>Color Schema and Variable</h3></summary>
   
   <p>
     in this library we use variable color schema. so, that meant in yek-scss functions and mixins available to making this task easy.
