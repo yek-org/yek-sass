@@ -35,7 +35,7 @@ unpkg.com/@yek/sass@3.1.0/dist/index.scss
 
 <p>execute below one of the below lines with copy and pasting their on your terminal</p>
 
-``` bash
+``` shell
 npm install --save-dev @yek/sass
 ```
 
@@ -43,7 +43,7 @@ or
 
 shorthand
 
-``` bash
+``` shell
 npm i -D @yek/sass
 ```
 
@@ -54,14 +54,14 @@ with any sub-folder
 
 so, adding below line on the top head of your main sass/scss file
 
-```scss
+``` scss
 // main.scss 
 @import '../node_module/@yke/sass/dist/index.scss';
 ```
 
 or how many level need to back to parent folder
 
-```scss
+``` scss
 @import '../../../../../../node_module/@yek/sass/dist/index.scss';
 ```
 
@@ -91,20 +91,52 @@ or how many level need to back to parent folder
   </thead>
   <tbody>
   <tr>
-  <td><code>$color-primary</code></td>
-  <td><code>--color-primary</code></td>
+  <td>
+    <pre lang="scss">
+      <code>$color-primary</code>
+    </pre>
+  </td>
+  <td>
+    <pre lang="css">
+      <code>--color-primary</code>
+    </pre>
+  </td>
   </tr>
   <tr>
-  <td><code>$color-secondary</code></td>
-  <td><code>--color-secondary</code></td>
+  <td>
+    <pre lang="scss">
+      <code>$color-secondary</code>
+    </pre>
+  </td>
+  <td>
+    <pre lang="css">
+      <code>--color-secondary</code>
+    </pre>
+  </td>
   </tr>
   <tr>
-  <td><code>$color-white</code></td>
-  <td><code>--color-white</code></td>
+  <td>
+    <pre lang="scss">
+      <code>$color-white</code>
+    </pre>
+  </td>
+  <td>
+    <pre lang="css">
+      <code>--color-white</code>
+    </pre>
+  </td>
   </tr>
   <tr>
-  <td><code>$color-black</code></td>
-  <td><code>--color-black</code></td>
+  <td>
+  <pre lang="scss">
+    <code>$color-black</code>
+  </pre>
+  </td>
+  <td>
+  <pre lang="css">
+    <code>--color-black</code>
+  </pre>
+  </td>
   </tr>
   <tr>
   <td><code>$color-gray</code></td>
