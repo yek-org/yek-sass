@@ -75,7 +75,7 @@ or how many level need to back to parent folder
   </p>
 
   <h4>Create Color Schema (Sass Variable system)</h4>
-  > this feature under wirtten and not tested
+> this feature under wirtten and not tested
 
   <p>in this case we syncing sass variable with css variable (custom property) and this featuer just availbe to using native color function who can use with css variables<br />
 
@@ -128,32 +128,32 @@ or how many level need to back to parent folder
     <summary><strong>Code Syntax</strong></summary>
 
 
-    <strong>Sass Syntax</strong>
+  <strong>Sass Syntax</strong>
 
-    ```scss
-    // custom or schema scss variable in here...
-    @include clear-root();
+  ```scss
+  // custom or schema scss variable in here...
+  @include clear-root();
 
-    // if we have custom css variable, we setting it with set-root mixin in here
-    @include set-root((
-      custom-variable: 'custom-name',
-      // and so on
-    ));
-    ```
+  // if we have custom css variable, we setting it with set-root mixin in here
+  @include set-root((
+    custom-variable: 'custom-name',
+    // and so on
+  ));
+  ```
 
-    <strong>Css Syntax</strong>
+  <strong>Css Syntax</strong>
 
-    ```css
-    :root {
-      --color-primary: #1a2556;
-      --color-secondary: #a5b3d4;
-      --color-gray: #dde6f3;
-      --color-light-gray: #f3f6fb;
-      --color-white: white;
-      --color-black: #3e3743;
-      --font-family: Roboto, Montserrat, sans-serif;
-    }
-    ```
+  ```css
+  :root {
+    --color-primary: #1a2556;
+    --color-secondary: #a5b3d4;
+    --color-gray: #dde6f3;
+    --color-light-gray: #f3f6fb;
+    --color-white: white;
+    --color-black: #3e3743;
+    --font-family: Roboto, Montserrat, sans-serif;
+  }
+  ```
 
   </details>
 
@@ -163,41 +163,41 @@ or how many level need to back to parent folder
   <details>
     <summary>Code Syntax</summary>
 
-    <strong>Sass Syntax</strong>
+  <strong>Sass Syntax</strong>
 
-    ```scss
-    .selector{
-      // sass native variable
-      background-color: $color-primary;
+  ```scss
+  .selector{
+    // sass native variable
+    background-color: $color-primary;
 
-      // css native variable
-      background-color: var(--color-primary);
+    // css native variable
+    background-color: var(--color-primary);
 
-      // varialbe function
-      background-color: val(color-primary);
+    // varialbe function
+    background-color: val(color-primary);
 
-      // color function
-      background-color: color(primary);
-    }
-    ```
+    // color function
+    background-color: color(primary);
+  }
+  ```
 
-    <strong>Css Syntax</strong>
+  <strong>Css Syntax</strong>
 
-    ```css
-    .selector{
-      /* sass native variable */
-      background-color: #1a2556;
+  ```css
+  .selector{
+    /* sass native variable */
+    background-color: #1a2556;
 
-      /* css native variable */
-      background-color: var(--color-primary);
+    /* css native variable */
+    background-color: var(--color-primary);
 
-      /* varialbe function */
-      background-color: var(--color-primary);
+    /* varialbe function */
+    background-color: var(--color-primary);
 
-      /* color function */
-      background-color: var(--color-primary);
-    }
-    ```
+    /* color function */
+    background-color: var(--color-primary);
+  }
+  ```
 
   </details>
 
