@@ -546,6 +546,9 @@ $font-family
 
 </details>
 
+<details>
+  <summary>Function</summary>
+
 
 #### `split`
 
@@ -565,6 +568,8 @@ $font-family
 
 //=> ('H', 'e', 'l', 'l', 'o'); <=//
 ```
+
+</details>
 
 
 
