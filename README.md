@@ -333,6 +333,46 @@ $font-family
 
   <details>
     <summary><h4>Flexbox</h4></summary>
+
+  <table>
+  <thead></thead>
+  <tbody>
+  <tr>
+  <td>
+
+  ` $dir `
+  
+  </td>
+  <td>
+
+  ` row [ column | row-reverse | column-reverse | col | col-rev | row-rev | r | c | rr | cr ] `
+
+  </td>
+  <td>
+
+  alise of ` flex-direction `
+
+  </td>
+  </tr>
+  <tr>
+  <td>
+
+  ` $wrap `
+  
+  </td>
+  <td>
+
+  ` wrap [ nowrap | no | n | w ] `
+
+  </td>
+  <td>
+
+  alise of ` flex-wrap `
+  
+  </td>
+  </tr>
+  </tbody>
+  </table>
   
   <strong>Sass Syntax</strong>
 
@@ -374,6 +414,133 @@ $font-family
   /* for wrapping fle */
   ```
 
+  </details>
+
+  <details>
+    <summary><h4>Align System</h4></summary>
+  
+  <table>
+  <thead></thead>
+  <tbody>
+  <tr>
+  <td>
+
+  ` $ver `
+  
+  </td>
+  <td>
+
+  ` flex-start [ flex-end | end | start | space-between | space-around | space-evenly | between | evenly | around or css native ] `
+
+  </td>
+  <td>
+
+  vertically align, alise of ` justify-content `
+
+  </td>
+  </tr>
+  <tr>
+  <td>
+
+  ` $hor `
+  
+  </td>
+  <td>
+
+  ` flex-start [ flex-end | end | start | space-between | space-around | space-evenly | between | evenly | around or css native ] `
+
+  </td>
+  <td>
+
+  horizontally align, alise of ` align-items `
+  
+  </td>
+  </tr>
+  <tr>
+  <td>
+
+  ` $content `
+  
+  </td>
+  <td>
+
+  ` flex-start [ flex-end | end | start | space-between | space-around | space-evenly | between | evenly | around or css native ] `
+
+  </td>
+  <td>
+  
+  alise of ` align-content `
+
+  </td>
+  </tr>
+  </tbody>
+  </table>
+  
+  <strong>Sass Syntax</strong>
+
+  ``` scss
+  // default parameters $dir = row and $wrap = wrap
+  @include flex;
+
+  // set `flex-direction` column
+  @include flex(column);
+  // or
+  @include flex($dir: column);
+
+  // set `flex-direction` row
+  @include flex;
+  // or
+  @include flex();
+  // or
+  @include flex(row);
+  // or
+  @include flex($dir: row);
+
+  // setting `flex-wrap` nowrap
+  @include flex($wrap: nowrap);
+  
+  // `flex-wrap` wrap
+  @include flex($wrap: wrap);
+  ```
+
+  <strong>Css Syntax</strong>
+
+  ``` css
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  /* for flex column, just flex direction changed */
+  flex-direction: column;
+
+  /* for wrapping flex */
+  flex-wrap: wrap; /* or nowrap */
+  ```
+
+  also, we can use ` aligns ` to shorthand of ` align ` mixin. that make all three parameter as once
+
+  ``` scss
+  // default is center
+  @include aligns;
+
+  // default is center
+  @include aligns();
+
+  // or you can use manual argument
+  @include aligns(center);
+  ```
+
+  ``` css
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  ```
+
+  </details>
+
+
+  <details>
+    <summary><h4>Size, Width and Height</h4></summary>
   </details>
 
 
