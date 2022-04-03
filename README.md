@@ -573,5 +573,5 @@ align-content: center;
 
 ## License
 
-Created with :heart: and :brain: by <a href="https://github.com/yek-org">YEK Inc</a> and Under [MIT](@mit) License <br />
-this project is [Open Source](@open-source), so, if you want to contribute this project just fork and make [PR's]() or [Issues]()
+Created with :heart: and :brain: by <a href="https://github.com/yek-org">YEK Inc</a> and Under [MIT](./LICENSE) License <br />
+	this project is <a href="https://github.com/open-source">Open Source</a>, so, if you want to contribute this project just fork and make [PR's]() or [Issues]()
