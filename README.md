@@ -1,4 +1,4 @@
-# YEK/SASS
+# Y-SASS
 
 ⚠️ WARNING: this library is still under development! ⚠️
 
