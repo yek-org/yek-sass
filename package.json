@@ -1,36 +1,36 @@
 {
-  "name": "@yek/sass",
-  "version": "3.1.0",
-  "description": "the Sass/SCSS library with useful mixins, functions and more features",
-  "main": "dist/index.scss",
-  "scripts": {
-    "publish": "npm publish",
-    "build": "npx gulp default",
-    "test": "echo \"test: OK\" && exit 0"
-  },
-  "keywords": [
-    "sass",
-    "scss",
-    "import-scss",
-    "node-sass",
-    "import",
-    "sass-module"
-  ],
-  "readme": "./README.md",
-  "repository": {
-    "type": "git",
-    "directory": "",
-    "url": "https://github.com/yek-org/yek-sass.git"
-  },
-  "author": {
-    "name": "miko-github",
-    "email": "mikoloism.github@gmail.com",
-    "url": "https://github.com/miko-github"
-  },
-  "license": "MIT",
-  "devDependencies": {
-    "gulp": "^4.0.2",
-    "gulp-concat": "^2.6.1",
-    "gulp-sourcemaps": "^3.0.0"
-  }
+	"name": "@yek/sass",
+	"version": "3.2.0",
+	"description": "the Sass/SCSS library with useful mixins, functions and more features",
+	"main": "dist/index.scss",
+	"scripts": {
+		"publish": "npm publish",
+		"build": "npx gulp default",
+		"test": "echo \"test: OK\" && exit 0"
+	},
+	"keywords": [
+		"sass",
+		"scss",
+		"import-scss",
+		"node-sass",
+		"import",
+		"sass-module"
+	],
+	"readme": "./README.md",
+	"repository": {
+		"type": "git",
+		"directory": "",
+		"url": "https://github.com/yek-org/yek-sass.git"
+	},
+	"author": {
+		"name": "miko-github",
+		"email": "mikoloism.github@gmail.com",
+		"url": "https://mikoloism.github.io/mikoloism"
+	},
+	"license": "MIT",
+	"devDependencies": {
+		"gulp": "^4.0.2",
+		"gulp-concat": "^2.6.1",
+		"gulp-sourcemaps": "^3.0.0"
+	}
 }
